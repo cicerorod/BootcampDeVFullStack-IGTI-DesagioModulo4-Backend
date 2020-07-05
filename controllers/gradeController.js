@@ -34,7 +34,7 @@ const findAll = async (req, res) => {
     : {};
 
   try {
-    const grade = await db.grade.find();
+    const grade = await db.grade.find(condition);
     res.status(200).send(grade);
 
     res.send();
@@ -146,4 +146,13 @@ const removeAll = async (req, res) => {
   }
 };
 
-export default { create, findAll, getAll, findOne, update, remove, removeAll };
+export default {
+  create,
+  findAll,
+  getAll,
+  findByName,
+  findOne,
+  update,
+  remove,
+  removeAll,
+};
