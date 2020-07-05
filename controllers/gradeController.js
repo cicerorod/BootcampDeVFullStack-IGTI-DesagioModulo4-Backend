@@ -168,17 +168,12 @@ const removeAll = async (req, res) => {
   }
 };
 
-<<<<<<< HEAD
 export default {
   create,
   findAll,
   getAll,
-  findByName,
   findOne,
   update,
   remove,
   removeAll,
 };
-=======
-export default { create, findAll, getAll,getAll2, findOne, update, remove, removeAll };
->>>>>>> 0f2d7cef77fa26d6067a0e0477c4f19ea5dda707
