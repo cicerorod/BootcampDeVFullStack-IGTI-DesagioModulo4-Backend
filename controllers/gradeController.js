@@ -69,6 +69,28 @@ const getAll = async (req, res) => {
   }
 };
 
+const getAll2 = async (req, res) => {
+  const name = req.query.name;
+
+  //condicao para o filtro no findAll
+  var condition = name
+    ? { name: { $regex: new RegExp(name), $options: "i" } }
+    : {};
+
+  try {
+    const grade = await db.grade.find();
+    res.status(200).send(grade);
+
+    res.send();
+    logger.info(`GET /grade`);
+  } catch (error) {
+    res
+      .status(500)
+      .send({ message: error.message || "Erro ao listar todos os documentos" });
+    logger.error(`GET /grade - ${JSON.stringify(error.message)}`);
+  }
+};
+
 //Feito
 const findOne = async (req, res) => {
   const id = req.params.id;
@@ -146,6 +168,7 @@ const removeAll = async (req, res) => {
   }
 };
 
+<<<<<<< HEAD
 export default {
   create,
   findAll,
@@ -156,3 +179,6 @@ export default {
   remove,
   removeAll,
 };
+=======
+export default { create, findAll, getAll,getAll2, findOne, update, remove, removeAll };
+>>>>>>> 0f2d7cef77fa26d6067a0e0477c4f19ea5dda707
