@@ -26,8 +26,12 @@ const app = express();
 app.use(bodyParser.json());
 //para aplicação local
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(cors({ origin: "https://lovely-great-basin-78596.herokuapp.com" }));
+
 //app.use(cors({ origin: "http://localhost:8080" }));
-app.use(cors());
+
+//app.use(cors());
 app.use(gradeRouter);
 
 app.get("/", (req, res) => {
